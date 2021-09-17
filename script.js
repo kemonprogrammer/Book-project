@@ -7,16 +7,18 @@ function Book(title, author, pages, hasRead) {
     this.hasRead = hasRead;
 }
 
-Book.prototype.info = () =>
-    `${this.title} by ${this.author}, ${this.pages} pages, ${(this.hasRead) ? "already read" : "not read yet"}.`;
+Book.prototype.info = () => `${this.title} by ${this.author}, ${this.pages} pages, ${(this.hasRead) ? "already read" : "not read yet"}.`;
 
+const createBook = (title, author, pages, hasRead) => {
+    const book = new Book(title, author, pages, hasRead);
+    return book;
+}
 
 function addBookToLibrary(book) {
     myLibrary.push(book);
 }
 
 function displayBook(book, index) {
-
     const card = document.createElement("div");
     const bookTitle = document.createElement("p");
     const bookAuthor = document.createElement("p");
@@ -36,7 +38,6 @@ function displayBook(book, index) {
     bookRead.setAttribute("name", "bookRead");
     bookRead.checked = book.hasRead;
 
-
     document.body.appendChild(card);
     card.appendChild(bookTitle);
     card.appendChild(bookAuthor);
@@ -51,14 +52,9 @@ function displayAllBooks() {
     });
 }
 
-
-let hobbit = new Book("The Hobbit", "J.R.R Tolkien", 295, true);
-addBookToLibrary(hobbit);
-let harryPotter = new Book("Harry Potter", "J.K. Rowling", 435, false);
-addBookToLibrary(harryPotter);
-let hobbit2 = new Book("The Hobbit 2", "J.R.R Tolkien", 257, true);
-addBookToLibrary(hobbit2);
-
-console.log(myLibrary);
+addBookToLibrary(createBook("The Hobbit", "J.R.R Tolkien", 295, true));
+addBookToLibrary(createBook("Harry Potter", "J.K. Rowling", 435, false));
+addBookToLibrary(createBook("The Hobbit 2", "J.R.R Tolkien", 257, true));
+// console.log(myLibrary);
 
 displayAllBooks();
