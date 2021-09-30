@@ -4,10 +4,12 @@
 }
 
 .bookCard {
-    padding: 2em;
+    /* padding: 2em;
     margin: 3em;
-    border: 1px solid rgb(1, 12, 15);
-    border-radius: 1em;
+    border: 1px solid rgb(1, 12, 15); */
+    /* background: #EEF0F4;
+    border-radius: 15%;
+    box-shadow: 13.51px 13.51px 21px #D5D7DA, -13.51px -13.51px 21px #FFFFFF; */
 }
 
 .bookCard>p {
